@@ -1,0 +1,22 @@
+class Block:
+    def __init__(self,time,form):
+        self.time = time #任务时长
+        self.form = form #不同种类会有不同的变化函数
+
+class Day:
+    def __init__(self,timing):
+        self.timing = timing
+        self.starting_timing = int(timing.split(':')[0])*60+int(timing.split(':')[1])
+        self.blocklist = []
+
+    def dayappend(self,block):
+        self.blocklist.append(block)
+
+def main(block):
+    if block.form == 'a': #a的名字是乱写的，以后会有很多类型分别写函数
+        block.time = block.time-10
+    return block
+d = Day('7:10')
+b = Block(40,'a')
+b = main(b)
+print(b.time)
